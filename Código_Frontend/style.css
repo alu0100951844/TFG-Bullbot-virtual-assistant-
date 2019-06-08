@@ -1,0 +1,164 @@
+
+* {
+    box-sizing: border-box;
+}
+
+/*Afecta a las tablas creadas para posicionar los botones y el input*/
+#input_table, #language_table {
+   width: 100%;
+   text-align: center;
+}
+
+/*Afecta a la celda de la tabla que contiene el título BULLBOT*/
+#bullbot {
+   background-color: #5c068c;
+   color:white;
+   font-weight: 800;
+}
+
+/*Afecta a las celdas de la tabla que poseen los idiomas*/
+.language {
+   width: 100px;
+   background-color: #b76fff;
+}
+
+/*Afecta a la celda de la tabla donde se ubica el boton de audio*/
+#voice {
+   width: 20px
+}
+
+/*Afecta al botón para grabar audio*/
+#record {
+    background-color: #57068C;
+    border-radius: 50%;
+    border-color: white;
+    width:35px;
+    height:35px;
+}
+
+/*Afecta al contenido de la etiqueta <body>*/
+body {
+    background-image: url("./imagenes/background.png"); 
+    font-family: Helvetica, Arial, sans-serif; 		
+    margin: 0;						 
+    padding: 0;						 
+}
+
+/*Afecta al contenido de la etiqueta <html>*/
+html {
+    font-size: 16px;	
+}
+
+/*Afecta al contenido de las etiquetas <div>*/
+div {
+    word-wrap: break-word;
+    line-height: 1.25rem;	
+}
+
+/*Afecta a la columna que contiene el Chat, el campo de input y los botones*/
+.chat-column {
+    height: 100%;			
+    padding: 11rem 0 0.625rem 0;	
+    margin: auto;			
+    text-align: left;			
+    max-width: 50rem;	
+    min-width: 9.375rem;
+}
+
+/*Afecta al Chat que esta dentro de chat-column*/
+#chat {
+    margin: 0.75rem;			
+    overflow-y: auto;			
+    overflow-x: hidden;			
+    height: 62vh;			
+}
+
+/*Afecta a los <div> de los mensajes tanto del usuario como del asistente*/
+.message {
+    opacity: 0;
+    opacity: 1;
+    margin-top: 0.9375rem;
+}
+
+/*---------------------------MENSAJES DE USUARIO--------------------------------*/
+
+/*Afecta al <div> que contiene el mensaje del usuario*/
+.user {
+    text-align: right;	
+}
+
+/*Afecta, en concreto, al <div> que contiene mensaje del usuario*/
+.user .message {
+    border-radius: 1.25rem;
+    border-bottom-right-radius: 0;
+    text-align: left;
+    display: inline-block;
+    margin-left: 2.5rem;
+    min-width: 2.5rem;
+    position: relative;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.015rem;
+    line-height: 1.3125rem;
+    background: #00B4A0;
+}
+
+/*Afecta al <p> que posee el mensaje del usuario*/
+.user .message p {
+    margin: 0.3125rem;
+    padding: 0 0.9375rem;
+
+}
+
+/*---------------------------MENSAJES DEL ASISTENTE--------------------------------*/
+
+/*Afecta al <div> que contiene el mensaje del asistente*/
+.watson .message {
+    position: relative;
+    border-radius: 1.5625rem;
+    font-size: 1rem;
+    color: #323232;
+    letter-spacing: 0.015rem;
+    line-height: 1.3125rem;
+}
+
+/*Afecta al <p> que posee el mensaje del asistente*/
+.watson p {
+    margin: 0.3125rem;
+    padding: 0 1.25rem;
+    border-radius: 8px;
+    background-color:rgba(255,255,255,0.95);
+    text-align: center;
+}
+
+/*Distintivo violeta al inicio del mensaje del asistente*/
+.watson p:before {
+    content: "";
+    background: #9855D4;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 2;
+    left: 0.4375rem;
+    width: 0.3125rem;
+    height: 1.3125rem;
+    line-height: 1.3125rem;
+}
+
+/*----------------------------SECCIÓN INPUT-------------------------------*/
+
+/*Afecta a la sección de input en la que el usuario escribe sus preguntas*/
+#textInput {
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    background: #E2D2EF;
+    font-size: 1rem;
+    color: #323232;
+    letter-spacing: 0.015rem;
+    line-height: 1.3125rem;
+    height: 2.5rem;
+    width: 100%;
+    padding-left: 0.125rem;
+    margin-bottom: -0.125rem;
+    overflow: auto;
+}
