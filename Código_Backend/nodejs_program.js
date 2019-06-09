@@ -134,8 +134,6 @@ app.post('/conversation/:language*?', type, function (req, res) {
       var { text, context={} } = req.body;
       console.log(language);
 
-      console.log('/n AA');
-      console.log(check);
       if((check=='node_12_1557869479309'&&(text=='si'||text=='yes'))||(check=='node_6_1557866654590'&&text=='no')) {
          text=context.save_message;
          check="empty";
