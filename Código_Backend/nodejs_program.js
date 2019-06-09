@@ -33,9 +33,11 @@ function sendmessage(assistant,languageTranslator,text,context,res,language) {
                 languageTranslator.translate( {text: response.output.text, source: 'es', target: 'en',} )
                    .then(body => {
 
+                      //console.log(JSON.stringify(response.context.system.dialog_stack[0].dialog_node, null, 2));
                       for(var i=0;i<special_node.length;i++) {
-                         if(response.output.nodes_visited==special_node[i])
+                         if(response.context.system.dialog_stack[0].dialog_node==special_node[i]) {
                             check=special_node[i];
+                         }
                       }
                       
                       response.output.text=(body.translations[0].translation).replace(/https: \/\//g,"https://");
@@ -50,9 +52,11 @@ function sendmessage(assistant,languageTranslator,text,context,res,language) {
                    });
              }
              else {
+                //console.log(JSON.stringify(response.context.system.dialog_stack[0].dialog_node, null, 2));
                 for(var i=0;i<special_node.length;i++) {
-                   if(response.output.nodes_visited==special_node[i])
+                   if(response.context.system.dialog_stack[0].dialog_node==special_node[i]) {
                       check=special_node[i];
+                   }
                 }
 
                 console.log(JSON.stringify(response.output.text, null, 2));
@@ -130,12 +134,14 @@ app.post('/conversation/:language*?', type, function (req, res) {
       var { text, context={} } = req.body;
       console.log(language);
 
+      console.log('/n AA');
+      console.log(check);
+      if((check=='node_12_1557869479309'&&(text=='si'||text=='yes'))||(check=='node_6_1557866654590'&&text=='no')) {
+         text=context.save_message;
+         check="empty";
+      }
+
       if(language=='en') {
-       
-         if((check=='node_12_1557869479309'&&(text=='si'||text=='yes'))||(check=='node_6_1557866654590'&&text=='no')) {
-            text=context.save_message;
-            check="empty";
-         }
          languageTranslator.translate( {text: text, source: 'en', target: 'es',} )
             .then(body => {
                sendmessage(assistant,languageTranslator,body.translations[0].translation,context,res,language)
